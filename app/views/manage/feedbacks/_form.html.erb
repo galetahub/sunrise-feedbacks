@@ -1,0 +1,15 @@
+<%= manage_form_for @feedback, :as => :feedback do |f| %> 
+  <div class="edit-cont">
+    <div class="inputs-bl">
+      <%= f.input :user_email %>
+            
+      <%= f.input :user_name %>
+
+      <%= f.input :phone_number %>
+            
+      <%= f.input :content %>                        
+    </div>
+  </div>
+  
+  <%= f.button :submit %>
+<% end %>

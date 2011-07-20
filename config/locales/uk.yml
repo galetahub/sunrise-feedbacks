@@ -1,0 +1,21 @@
+uk:
+  manage:
+    plugins:
+      feedbacks: "Зворотній зв'язок"
+      
+    menu:
+      feedback_messages: "Зворотній зв'язок"
+      
+  activerecord:
+    attributes:
+      feedback_message:
+        user_name: "Ім'я"
+        user_email: "Email"
+        phone_number: "Телефон"
+        content: "Повідомлення"
+        author: "Автор"
+  
+  sunrise:
+    feedback:
+      new: "Зворотній зв'язок"
+      create: "Відправити"

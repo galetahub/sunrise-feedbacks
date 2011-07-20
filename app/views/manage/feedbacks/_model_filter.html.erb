@@ -1,0 +1,36 @@
+<div class="bot-bg">
+  <div class="filt-bl">
+    <%= link_to_function t('manage.model_filter.title'), "Manage.toggle_element('block_filter')", :class=>"dark-arr" %>
+    
+    <%= cookie_content_tag(:div, :id=>"block_filter", :class=>"filt") do %>
+      <%= form_for @search, :as => :search, :url=>manage_feedbacks_path, :html=>{:method=>:get, :id=>"form_filter"} do |f| %>
+                  
+        <%= f.label :phone_number, t('feedback_message.phone_number', :scope => [:activerecord, :attributes]) %>
+        <%= f.text_field :phone_number, :class=>"text" %>
+                  
+        <%= f.label :user_email, t('feedback_message.user_email', :scope => [:activerecord, :attributes]) %>
+        <%= f.text_field :user_email, :class=>"text" %>
+                  
+        <div class="buts">
+          <%= content_tag(:button, :value=>"search", :type=>"submit", :name=>"commit", :class=>"gr cupid-green") do %>
+            <%= t('manage.model_filter.search') %>
+          <% end %>
+          
+          <%= link_to t('manage.model_filter.clear'), manage_feedbacks_path, :class=>"erase" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="sort">
+  	<label><%= t('manage.sort') %></label>
+    <div class="select-input"><%= link_to_function t("feedbacks.#{@search.order_column}_#{@search.order_type}", :scope => [:manage, :sort_columns], :default => :"#{@search.order_column}_#{@search.order_type}"), "SelectList.toggle(event)", :class=>"corn", :id=>'sort_select' %></div>
+    <div id='sort_select_list' class="select-list" style='display:none;'>
+      
+      <%= link_to_sort(t('feedback_message.created_at_desc', :scope => [:manage, :sort_columns], :default => :created_at_desc), :name => "created_at", :order_type => 'desc') %>
+      <%= link_to_sort(t('feedback.created_at_asc', :scope => [:manage, :sort_columns], :default => :created_at_asc), :name => "created_at", :order_type => 'asc') %>
+      
+      <%= link_to_sort(t('feedback_message.updated_at_desc', :scope => [:manage, :sort_columns], :default => :updated_at_desc), :name => "updated_at", :order_type => 'desc') %>
+      <%= link_to_sort(t('feedbacks.updated_at_asc', :scope => [:manage, :sort_columns], :default => :updated_at_asc), :name => "updated_at", :order_type => 'asc') %>
+    </div>
+  </div>
+</div>

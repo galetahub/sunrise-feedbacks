@@ -1,0 +1,21 @@
+ru:
+  manage:
+    plugins:
+      feedbacks: "Обратная связь"
+      
+    menu:
+      feedback_messages: "Обратная связь"
+      
+  activerecord:
+    attributes:
+      feedback_message:
+        user_name: "Имя"
+        user_email: "Email"
+        phone_number: "Телефон"
+        content: "Сообщение"
+        author: "Автор"
+  
+  sunrise:
+    feedback:
+      new: "Обратная связь"
+      create: "Отправить"

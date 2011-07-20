@@ -1,0 +1,12 @@
+= Sunrise Feedbacks
+
+== Install
+
+  rails generate sunrise:feedbacks:install
+  
+  rake db:migrate
+
+== Usage
+  
+  
+Copyright (c) 2011 Aimbulance, released under the MIT license

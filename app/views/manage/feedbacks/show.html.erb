@@ -1,0 +1,13 @@
+<div class="buttons">
+  <div class="back-but-bl">
+    <%= link_to content_tag(:span, t('manage.menu.feedback_messages')), manage_feedbacks_path, :class=>"back" %>
+  </div>
+
+  <div class="act-bl">
+    <%= link_to image_tag("manage/ico_edit.gif", :title=>t('manage.edit')), edit_manage_feedback_path(:id=>@feedback.id), :class=>"icons" %>
+
+    <%= link_to image_tag("manage/ico_del.gif", :title=>t('manage.delete')), manage_feedback_path(:id=>@feedback.id), :method=>:delete, :confirm=>t("manage.confirm_delete"), :class=>"icons" %>
+  </div>
+</div>
+
+<%= render :partial => 'manage/feedbacks/message', :collection => @feedbacks %>

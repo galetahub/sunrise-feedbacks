@@ -1,0 +1,10 @@
+<div class="edit-bl">
+  <div class="bot-bg">
+    <div class="block-title"><%= message.user_name %>:</div>
+    <div class="edit-cont">
+      <%= message.content %>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => 'manage/feedbacks/answer', :collection => message.answers %>

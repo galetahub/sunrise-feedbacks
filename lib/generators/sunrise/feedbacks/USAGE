@@ -1,0 +1,11 @@
+Usage:
+  rails generate sunrise:feedbacks:install [options]
+
+Options:
+  [--migrations]  # Indicates when to generate migrations
+                  # Default: true
+                 
+Example:
+  rails g sunrise:feedbacks:install
+  
+  rails g sunrise:feedbacks:install --skip-migrations
