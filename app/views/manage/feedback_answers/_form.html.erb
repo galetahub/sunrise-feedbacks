@@ -1,0 +1,17 @@
+<div id="answer_form_block" style="padding-top:20px;display:none;">
+  <div class="edit-bl">
+    <div class="bot-bg">
+      <%= manage_form_for @feedback_answer, :remote => true do |f| %> 
+        <%= f.hidden_field :message_id %>
+        
+        <div class="edit-cont">
+          <div class="inputs-bl">
+            <%= f.input :content, :input_html => { :cols => 70, :rows => 10 } %>                        
+          </div>
+        </div>
+        
+        <%= f.button :submit, :url => "#cancel" %>
+      <% end %>
+    </div>
+  </div>
+</div>

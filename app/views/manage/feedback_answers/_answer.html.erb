@@ -1,0 +1,17 @@
+<%= content_tag(:div, :class => "white-row", :style => "margin-top:10px;", :id => dom_id(answer)) do %>
+  <div class="r-corn">
+    <div class="buttons" style="padding-top:0px;">
+      <div class="act-bl">
+        <%= link_to image_tag("manage/ico_del.gif", :title=>t('manage.delete')), 
+          manage_feedback_answer_path(:id=>answer.id), 
+          :method=>:delete, 
+          :confirm=>t("manage.confirm_delete"), 
+          :class=>"icons",
+          :remote => true %>
+      </div>
+    </div>
+      
+    <%= answer.author.name %>:
+    <%= answer.content %>
+  </div>
+<% end %>

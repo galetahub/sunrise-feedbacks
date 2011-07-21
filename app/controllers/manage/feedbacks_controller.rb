@@ -8,6 +8,7 @@ class Manage::FeedbacksController < Manage::BaseController
   
   def show
     @feedbacks = @feedback.siblings
+    @feedback_answer = FeedbackAnswer.new
     respond_with(@feedbacks)
   end
   

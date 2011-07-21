@@ -8,5 +8,19 @@
 
 == Usage
   
+=== Configuration
+
+  Sunrise::Feedbacks.setup do |config|
+    config.navigational_formats = [:html, :js]
+    config.siblings_keys = [:user_email]
+  end
+
+=== ActiveRecord
+
+  class User < ActiveRecord::Base
+    include Sunrise::Feedbacks::Author
+  end
+  
+  user.feedback_messages
   
 Copyright (c) 2011 Aimbulance, released under the MIT license

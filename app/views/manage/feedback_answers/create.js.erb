@@ -1,0 +1,8 @@
+<% if @feedback_answer.errors.empty? %>
+  $('#new_feedback_answer').get(0).reset();
+  $('#answer_form_block').hide();
+  $('#<%= dom_id(@feedback_answer.message) %>').replaceWith("<%= escape_javascript(render(:partial=>"manage/feedbacks/message", :object => @feedback_answer.message)) %>");
+<% else %>
+  $('#answer_form_block').replaceWith("<%= escape_javascript(render(:partial=>"manage/feedback_answers/form")) %>")
+  $('#answer_form_block').show();
+<% end %>

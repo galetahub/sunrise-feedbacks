@@ -1,10 +1,19 @@
-<div class="edit-bl">
-  <div class="bot-bg">
-    <div class="block-title"><%= message.user_name %>:</div>
-    <div class="edit-cont">
-      <%= message.content %>
+<%= content_tag(:div, :class => "feedback_message", :id => dom_id(message), :style => "padding-top:10px;") do %>
+  <div class="edit-bl">
+    <div class="bot-bg">
+      <div class="buttons">
+        <div class="act-bl">
+          <%= link_to image_tag("manage/ico_down.gif", :title=>t('manage.feedbacks.answers.new')), 
+            "#" + dom_id(message), :class => "icons answer" %>
+        </div>
+      </div>
+      
+      <div class="block-title"><%= message.user_name %>:</div>
+      <div class="edit-cont">
+        <%= message.content %>
+      </div>
     </div>
   </div>
-</div>
 
-<%= render :partial => 'manage/feedbacks/answer', :collection => message.answers %>
+  <%= render :partial => 'manage/feedback_answers/answer', :collection => message.answers.includes(:author) %>
+<% end %>

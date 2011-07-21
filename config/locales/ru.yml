@@ -5,7 +5,11 @@ ru:
       
     menu:
       feedback_messages: "Обратная связь"
-      
+    
+    feedbacks:
+      answers:
+        new: "Ответить"
+    
   activerecord:
     attributes:
       feedback_message:

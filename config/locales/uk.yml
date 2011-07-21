@@ -5,6 +5,10 @@ uk:
       
     menu:
       feedback_messages: "Зворотній зв'язок"
+    
+    feedbacks:
+      answers:
+        new: "Відповісти"
       
   activerecord:
     attributes:
@@ -14,6 +18,10 @@ uk:
         phone_number: "Телефон"
         content: "Повідомлення"
         author: "Автор"
+      
+      feedback_answer:
+        author: "Автор"
+        content: "Відповідь"
   
   sunrise:
     feedback:

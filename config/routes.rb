@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   
   namespace :manage do
     resources :feedbacks
+    resources :feedback_answers, :only => [:create, :update, :destroy]
   end
 end

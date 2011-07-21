@@ -11,3 +11,26 @@
 </div>
 
 <%= render :partial => 'manage/feedbacks/message', :collection => @feedbacks %>
+
+<%= render :partial => 'manage/feedback_answers/form' %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('div.buttons a.answer').live('click', function(e){
+      var message_id = $(this).attr('href').replace('#feedback_message_', '');
+      $('#answer_form_block').show();
+      $('#feedback_answer_message_id').val(message_id);
+
+      //answer_form_block
+      var pos = $("#answer_form_block").position();
+      $(document).scrollTop(pos.top + 100);
+      
+      return false;
+    });
+    
+    $('a.erase').live('click', function(e){
+      $('#answer_form_block').hide();
+      return false;
+    });
+  });
+</script>

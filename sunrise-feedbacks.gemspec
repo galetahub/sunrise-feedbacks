@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Igor Galeta", "Pavlo Galeta"]
-  s.date = %q{2011-07-20}
+  s.date = %q{2011-07-21}
   s.description = %q{Sunrise is a Aimbulance CMS}
   s.email = %q{galeta.igor@gmail.com}
   s.extra_rdoc_files = [
@@ -19,11 +19,15 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "app/controllers/feedbacks_controller.rb",
+    "app/controllers/manage/feedback_answers_controller.rb",
     "app/controllers/manage/feedbacks_controller.rb",
     "app/helpers/manage/feedbacks_helper.rb",
     "app/views/feedbacks/_form.html.erb",
     "app/views/feedbacks/new.html.erb",
-    "app/views/manage/feedbacks/_answer.html.erb",
+    "app/views/manage/feedback_answers/_answer.html.erb",
+    "app/views/manage/feedback_answers/_form.html.erb",
+    "app/views/manage/feedback_answers/create.js.erb",
+    "app/views/manage/feedback_answers/destroy.js.erb",
     "app/views/manage/feedbacks/_feedback.html.erb",
     "app/views/manage/feedbacks/_form.html.erb",
     "app/views/manage/feedbacks/_message.html.erb",

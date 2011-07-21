@@ -1,7 +1,7 @@
 class FeedbackAnswer < ActiveRecord::Base
   include Sunrise::Models::FeedbackAnswer
   
-  attr_accessible :content
+  attr_accessible :content, :message_id
 
   # Validations
   validates :content, :presence => true, :length => { :maximum => 500 }
