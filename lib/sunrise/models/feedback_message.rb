@@ -41,6 +41,10 @@ module Sunrise
         def siblings
           self.class.siblings_for(self)
         end
+        
+        def email_address_with_name
+          "#{user_name} <#{user_email}>"
+        end
     
         protected
     
