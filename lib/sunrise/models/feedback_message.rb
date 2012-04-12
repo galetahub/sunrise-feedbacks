@@ -17,7 +17,9 @@ module Sunrise
             
             default_scope order("#{quoted_table_name}.id DESC")
             scope :recently, order("#{quoted_table_name}.created_at DESC")
-            scope :with_author, lambda { |item| where(["author_type = ? AND author_id = ?", item.author_type, item.author_id]) }
+            scope :with_author, lambda { |item| where(:author_type => item.author_type, :author_id => item.author_id) }
+            scope :with_email, lambda { |email| where(:user_email => email) }
+            scope :with_phone, lambda { |phone| where(:phone_number => phone) }
           end
         end
         

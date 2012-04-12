@@ -2,7 +2,7 @@
   <div class="r-corn">
     <div class="buttons" style="padding-top:0px;">
       <div class="act-bl">
-        <%= link_to image_tag("manage/ico_del.gif", :title=>t('manage.delete')), 
+        <%= link_to manage_icon("delete"), 
           manage_feedback_answer_path(:id=>answer.id), 
           :method=>:delete, 
           :confirm=>t("manage.confirm_delete"), 

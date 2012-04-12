@@ -1,10 +1,12 @@
 class Manage::FeedbacksController < Manage::BaseController
   inherit_resources
   defaults :route_prefix => 'manage', :resource_class => FeedbackMessage
-  
-  before_filter :make_filter, :only=>[:index]
 
   load_and_authorize_resource :class => FeedbackMessage
+  
+  has_scope :with_email, :as => :user_email, :only => :index
+  has_scope :with_phone, :as => :phone_number, :only => :index
+  order_by :created_at, :updated_at
   
   def show
     @feedbacks = @feedback.siblings
@@ -27,11 +29,6 @@ class Manage::FeedbacksController < Manage::BaseController
   protected
     
     def collection
-      @feedbacks = (@feedbacks || end_of_association_chain).merge(@search.scoped).page(params[:page])
-    end
-    
-    def make_filter
-      @search = Sunrise::ModelFilter.new(FeedbackMessage, :attributes => [:user_email, :phone_number])
-      @search.update_attributes(params[:search])
+      @feedbacks = (@feedbacks || end_of_association_chain).order(search_filter.order).page(params[:page])
     end
 end

@@ -1,9 +1,13 @@
 <%= content_tag(:div, :id=>dom_id(feedback), :class=>"dinamic-bl") do %>
   <div class="act-bl" style="display:none;">
-    <%= link_to image_tag("manage/ico_edit.gif", :alt=>t('manage.edit'), :title=>t('manage.edit')), edit_manage_feedback_path(:id=>feedback.id), :class=>"icons" %>
-
-    <%= link_to image_tag("manage/ico_del.gif", :alt=>t('manage.delete'), :title=>t('manage.delete')), manage_feedback_path(:id=>feedback.id), 
+    <% if can? :update, feedback, :context => :manage %>
+      <%= link_to manage_icon("edit"), edit_manage_feedback_path(:id=>feedback.id), :class=>"icons" %>
+    <% end -%>
+    
+    <% if can? :delete, feedback, :context => :manage %>
+      <%= link_to manage_icon("delete"), manage_feedback_path(:id=>feedback.id), 
           :method=>:delete, :confirm=>t("manage.confirm_delete"), :class=>"icons" %>
+    <% end -%>
   </div>
   
   <div class="bot-bg">

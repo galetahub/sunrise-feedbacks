@@ -4,9 +4,14 @@
   </div>
 
   <div class="act-bl">
-    <%= link_to image_tag("manage/ico_edit.gif", :title=>t('manage.edit')), edit_manage_feedback_path(:id=>@feedback.id), :class=>"icons" %>
-
-    <%= link_to image_tag("manage/ico_del.gif", :title=>t('manage.delete')), manage_feedback_path(:id=>@feedback.id), :method=>:delete, :confirm=>t("manage.confirm_delete"), :class=>"icons" %>
+    <% if can? :update, @feedback, :context => :manage %>
+      <%= link_to manage_icon("edit"), edit_manage_feedback_path(:id=>@feedback.id), :class=>"icons" %>
+    <% end -%>
+    
+    <% if can? :delete, @feedback, :context => :manage %>
+      <%= link_to manage_icon("delete"), manage_feedback_path(:id=>@feedback.id), 
+          :method=>:delete, :confirm=>t("manage.confirm_delete"), :class=>"icons" %>
+    <% end -%>
   </div>
 </div>
 
